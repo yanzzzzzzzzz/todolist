@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Todolist</title>
+</head>
+<body onload="onload()">
+    <div id="app">
+        <header class = "header">
+            <ul class="navbar container" id ="navbar">
+                <li class="navbar-item active" id="Tasks">
+                    <a href="#">My Tasks</a>
+                </li>
+                <li class="navbar-item" id="Progress">
+                    <a href="#">In Progress</a>
+                </li>
+                <li class="navbar-item" id="Completed">
+                    <a href="#">Completed</a>
+                </li>
+            </ul>
+        </header>
+        <section class="container">
+            <div class="todo">
+                <ul>
+                    <li class="todo-item" id ="todo-item-top">
+                        <div class="todo-btn todo-btn-add" onclick="add_task_btn.click()">
+                            <i class="icon ion-md-add-circle-outline" id="add_task_btn"></i><span>+Add Task</span>
+                        </div>
+                        <div class="todo-item-detail" id ="detail">
+                            <div class="todo-top-title">
+                                <div class = "todo-check-box_top">
+                                    <input type="checkbox" >
+                                </div>
+                                <div class = "todo-title-modify" contenteditable="true">Type Something here</div>
+                                <div class="todo-item-star">
+                                    <i class="fa fa-star-o" ></i>
+                                </div>
+                                <div class="todo-item-pencil edit-pencil">
+                                    <i class="fa fa-pencil" ></i>
+                                </div>
+                            </div>
+                            <div class="line">
+
+                            </div>
+                            <div class="todo-deadline">
+                                <i class="fa fa-calendar"></i> 
+                                <div class="todo-title">Deadline</div> 
+                                <input id = "date_data" type="datetime-local" class="input-date">
+                            </div>
+                            <div class="todo-file">
+                                <i class="fa fa-file-o"></i> 
+                                <div class="todo-title">File</div> 
+                                <div class="input-file-box">
+                                    <div onclick="upfile_1.click()" class="input-file-style">尚未選擇檔案</div> 
+                                    <input type="file" id="upfile_1" class="input-file">
+                                </div>
+                            </div>
+                            <div class="todo-des">
+                                <i class="fa fa-comment-o"></i>
+                                <div class="todo-title">Comment</div> 
+                                <textarea rows="6" placeholder="Type your memo here..." class="todo-textarea">addsa</textarea>
+                            </div>
+                        </div>
+                        <div class="todo-item-btns" id ="btns" >
+                            <div class="todo-btn todo-btn--secondary">
+                                XCancel
+                            </div>
+                            <div class="todo-btn todo-btn--add" id ="top_ok_btn">
+                                +Add Task
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="todo-list drag-sort-enable">
+                    <li id="list0" class="todo-item" style="display: none;">
+                        <div class="todo-item-main" >
+                            <ul >
+                                <li class="todo-list-add">
+                                    <div class = "todo-check-box">
+                                        <input type="checkbox" >
+                                    </div>
+                                    <div class="todo-main-title">
+                                            AAAAAAAAA
+                                    </div>
+                                    <div class="todo-item-star">
+                                        <i class="fa fa-star-o" ></i>
+                                    </div>
+                                    <div class="todo-item-pencil">
+                                        <i class="fa fa-pencil" ></i>
+                                    </div>
+                                </li>
+                                <li class="todo-list-add">
+                                    <div class="todo-item-date">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="todo-date-title">2020-07-20T12:18</div>
+                                    <div class="todo-item-file">
+                                        <i class="fa fa-file-o"></i> 
+                                    </div>
+                                    <div class="todo-item-file-name">11113.png</div>
+                                    <div class="todo-item-comment">
+                                        <i class="fa fa-comment-o"></i>
+                                    </div>
+                                    <div class="todo-item-comment-detail">12223321</div>
+                                </li>
+                            </ul>
+                        </div>             
+                    </li>
+                    <li id="list1" class="todo-item">
+                        <div class="todo-item-main">
+                            <ul >
+                                <li class="todo-list-add">
+                                    <div class = "todo-check-box">
+                                        <input type="checkbox" >
+                                    </div>
+                                    <div class="todo-main-title">study</div>
+                                    <div class="todo-item-star">
+                                        <i class="fa fa-star" ></i>
+                                    </div>
+                                    <div class="todo-item-pencil">
+                                        <i class="fa fa-pencil" ></i>
+                                    </div>
+                                </li>
+                                <li class="todo-list-add">
+                                    <div class="todo-item-date">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="todo-date-title">2020-07-25T08:18</div>
+                                    <div class="todo-item-file">
+                                        <i class="fa fa-file-o"></i> 
+                                    </div>
+                                    <div class="todo-item-file-name">flow.png</div>
+                                    <div class="todo-item-comment">
+                                        <i class="fa fa-comment-o"></i>
+                                    </div>
+                                    <div class="todo-item-comment-detail">12223321</div>
+                                </li>
+                            </ul>
+                        </div>                       
+                    </li>
+                    <li id="list2" class="todo-item">
+                        <div class="todo-item-main">
+                            <ul >
+                                <li class="todo-list-add">
+                                    <div class = "todo-check-box">
+                                        <input type="checkbox" >
+                                    </div>
+                                    <div class="todo-main-title">Play CSGO</div>
+                                    <div class="todo-item-star">
+                                        <i class="fa fa-star" ></i>
+                                    </div>
+                                    <div class="todo-item-pencil">
+                                        <i class="fa fa-pencil" ></i>
+                                    </div>
+                                </li>
+                                <li class="todo-list-add">
+                                    <div class="todo-item-date">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="todo-date-title">2020-07-22T12:18</div>
+                                    <div class="todo-item-file">
+                                        <i class="fa fa-file-o"></i> 
+                                    </div>
+                                    <div class="todo-item-file-name">gogo.png</div>
+                                    <div class="todo-item-comment">
+                                        <i class="fa fa-comment-o"></i>
+                                    </div>
+                                    <div class="todo-item-comment-detail">12223321</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="list3" class="todo-item">
+                        <div class="todo-item-main">
+                            <ul>
+                                <li class="todo-list-add">
+                                    <div class = "todo-check-box">
+                                        <input type="checkbox" >
+                                    </div>
+                                    <div class="todo-main-title">Sleep</div>
+                                    <div class="todo-item-star">
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="todo-item-pencil">
+                                        <i class="fa fa-pencil" ></i>
+                                    </div>
+                                </li>
+                                <li class="todo-list-add">
+                                    <div class="todo-item-date">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="todo-date-title">2020-07-20T12:18</div>
+                                    <div class="todo-item-comment">
+                                        <i class="fa fa-comment-o"></i>
+                                    </div>
+                                    <div class="todo-item-comment-detail">12223321</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul> 
+            </div>
+        </section>
+    </div>
+    <script src="js/todolist.js"></script>
+</body>
+</html>
