@@ -128,6 +128,7 @@ function oncheck_change(list_id){
     }
     change_text_decoration(list_id, check_box.checked);
     change_div_type_as_ok(list_id, check_box.checked);
+    count_list_num();
 }
 function change_bgcolor_by_star(list_div,star_str){
     if(star_str=="fa fa-star"){
@@ -324,7 +325,26 @@ function add_onclick_navbar_li(){
         navbar_li[navbar_idx].setAttribute("onclick","onclick_navbar_li("+navbar_li[navbar_idx].id+")");
     }
 }
-
+function count_list_num(){
+    var num_div = document.getElementsByClassName("todo_num")[0];
+    var all_list = document.getElementsByClassName("todo-list drag-sort-enable")[0].getElementsByClassName("todo-item");
+    var num  = all_list.length;
+    for(var i=0;i<all_list.length;i++){
+        var list_div = all_list[i].getElementsByClassName("todo-item-main")[0];
+        //check if it is done or not
+        var list_input = list_div.getElementsByTagName('input');
+        var check_box;
+        for (var j = 0; j < list_input.length; j++) {
+            if (list_input[j].type == 'checkbox') {
+                check_box = list_input[j];
+            }
+        }
+        if(check_box.checked){
+            num--;
+        }
+    }
+    num_div.innerHTML = num + "task left";
+}
 // ---drag and sort---
 // this drag and sort function is reference by https://codepen.io/fitri/pen/VbrZQm
 function enableDragSort(listClass) {
@@ -388,6 +408,7 @@ function onload(){
     pencil_icon_add_toggle();
     add_onclick_navbar_li();
     add_check_event();
+    count_list_num();
     var all_todo_list = document.getElementsByClassName("todo-list drag-sort-enable")[0].getElementsByClassName("todo-item");
     for(var i=0;i<all_todo_list.length;i++){
         var list_div = all_todo_list[i].getElementsByClassName("todo-item-main")[0];

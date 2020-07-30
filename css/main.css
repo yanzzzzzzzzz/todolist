@@ -326,3 +326,9 @@ span.drag-sort-active {
 .todo-file .input-file {
   visibility: hidden; 
 }
+.todo_num{
+    padding-left: 47px;
+    font-size: 24px;
+    color: #C8C8C8;
+    font-style:italic;
+}
